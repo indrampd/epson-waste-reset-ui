@@ -1,0 +1,548 @@
+[+     2 ms] ==================================================
+[+     2 ms] EPSON USB INTERFACE SURVEY (libusb)
+[+     2 ms] EWR Version: 1.6.0
+[+     2 ms] ==================================================
+
+[+   232 ms] [i] IEEE 1284 device ID from Interface 1 (Printer Class) | Endpoint OUT: 0x4 / IN: 0x83 | VID 0x04B8 PID 0x1142:
+[+   232 ms]     MFG:EPSON;CMD:ESCPL2,BDC,D4,D4PX,ESCPR1,END4;MDL:L3110 Series;CLS:PRINTER;DES:EPSON L3110 Series;CID:EpsonRGB;FID:FXN,DPN,WFN,ETN,AFN,DAN,WRN;RID:50;DDS:022180;ELG:1163;
+[+     2 ms] ==================================================
+[+     2 ms] EWR STATUS/READ QUERY SESSION (libusb)
+[+     2 ms] EWR Version: 1.6.0
+[+     2 ms] Printer reports: L3110 Series
+[+     2 ms] Detected entry:  L3110
+[+     2 ms] Selected entry:  L3110 (--model "L3110")
+[+     2 ms] ==================================================
+
+[+     2 ms] [i] Interface pin active: only candidate #1 will be driven (no fallback).
+
+[+     2 ms] [Selection Decision]
+[+     2 ms]   Candidate:     1 of 2
+[+     2 ms]   Interface:     Interface 1 (Printer Class) | Endpoint OUT: 0x4 / IN: 0x83 | VID 0x04B8 PID 0x1142
+[+     2 ms]   Product ID:    0x1142
+
+[+     2 ms] [Session] Candidate 1 of 2, attempt 1 of 1: starting a fresh session.
+
+[+     2 ms] ==================================================
+[+     2 ms] BEGIN QUERY SESSION (read-only)
+[+     2 ms] Interface:     Interface 1 (Printer Class) | Endpoint OUT: 0x4 / IN: 0x83 | VID 0x04B8 PID 0x1142
+[+     2 ms] Queries:       11
+[+     2 ms] ==================================================
+
+[+     2 ms] === IEEE 1284.4 SESSION CORE (read-only) ===
+
+[+     2 ms] [OUT] EJL enter (27 bytes):
+[+     2 ms] 00 00 00 1b 01 40 45 4a 4c 20 31 32 38 34 2e 34  | .....@EJL 1284.4
+[+     2 ms] 0a 40 45 4a 4c 0a 40 45 4a 4c 0a                 | .@EJL.@EJL.
+
+[+     2 ms] [io] OUT 27/27 bytes in 0 ms.
+[+     7 ms] [io] IN 8 bytes at +5 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+     7 ms] [io] Drain summary: 8 bytes in 1 data read(s) over 5 ms (first-byte window 1999 ms); first data at +5 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+     7 ms] [io] IN payload (8 bytes):
+[+     7 ms] 00 00 00 08 01 00 c5 00                          | ........
+[+     7 ms] [IN]  D4 pre-session reply (2 payload bytes)
+[+     8 ms] [OUT] D4 packet (8 bytes):
+[+     8 ms] 00 00 00 08 01 00 00 10                          | ........
+
+[+     8 ms] [io] OUT 8/8 bytes in 0 ms.
+[+   113 ms] [io] IN 9 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+   113 ms] [io] Drain summary: 9 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   113 ms] [io] IN payload (9 bytes):
+[+   113 ms] 00 00 00 09 01 00 80 00 10                       | .........
+[+   113 ms] [IN]  D4 transaction payload (3 bytes):
+[+   113 ms] 80 00 10                                         | ...
+
+[+   113 ms] [OUT] D4 packet (17 bytes):
+[+   113 ms] 00 00 00 11 01 00 09 45 50 53 4f 4e 2d 43 54 52  | .......EPSON-CTR
+[+   113 ms] 4c                                               | L
+
+[+   114 ms] [io] OUT 17/17 bytes in 0 ms.
+[+   217 ms] [io] IN 19 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+   217 ms] [io] Drain summary: 19 bytes in 1 data read(s) over 0 ms (first-byte window 1999 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   217 ms] [io] IN payload (19 bytes):
+[+   217 ms] 00 00 00 13 01 00 89 00 02 45 50 53 4f 4e 2d 43  | .........EPSON-C
+[+   217 ms] 54 52 4c                                         | TRL
+[+   217 ms] [IN]  D4 transaction payload (13 bytes):
+[+   217 ms] 89 00 02 45 50 53 4f 4e 2d 43 54 52 4c           | ...EPSON-CTRL
+
+[+   217 ms] [i] GetSocketID("EPSON-CTRL") -> socket 2
+[+   217 ms] [OUT] D4 packet (17 bytes):
+[+   217 ms] 00 00 00 11 01 00 01 02 02 01 00 01 00 00 00 00  | ................
+[+   217 ms] 00                                               | .
+
+[+   217 ms] [io] OUT 17/17 bytes in 0 ms.
+[+   323 ms] [io] IN 16 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+   323 ms] [io] Drain summary: 16 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   323 ms] [io] IN payload (16 bytes):
+[+   323 ms] 00 00 00 10 01 00 81 00 02 02 00 40 01 00 00 00  | ...........@....
+[+   323 ms] [IN]  D4 transaction payload (10 bytes):
+[+   323 ms] 81 00 02 02 00 40 01 00 00 00                    | .....@....
+
+[+   323 ms] [i] Channel open on socket 2: MTU 64 to printer / 256 to host, initial send credit 0
+[+   323 ms] [OUT] D4 packet (11 bytes):
+[+   323 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+   323 ms] [io] OUT 11/11 bytes in 0 ms.
+[+   428 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+   428 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1999 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   428 ms] [io] IN payload (10 bytes):
+[+   428 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+   428 ms] [IN]  D4 transaction payload (4 bytes):
+[+   428 ms] 83 00 02 02                                      | ....
+
+[+   450 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 21 ms (first-byte window 249 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   472 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 226 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   493 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 205 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   515 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 183 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   537 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 161 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   559 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 139 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   581 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 117 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   603 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 95 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   624 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 74 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   646 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 52 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   668 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 20 ms (first-byte window 30 ms); no data arrived; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   679 ms] [io] Drain summary: 0 bytes in 0 data read(s) over 9 ms (first-byte window 8 ms); no data arrived; last status: LIBUSB_ERROR_TIMEOUT.
+[+   679 ms] [OUT] D4 packet (13 bytes):
+[+   679 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+   679 ms] [io] OUT 13/13 bytes in 0 ms.
+[+   782 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+   782 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   782 ms] [io] IN payload (12 bytes):
+[+   782 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+   782 ms] [IN]  D4 transaction payload (6 bytes):
+[+   782 ms] 84 00 02 02 00 01                                | ......
+
+[+   782 ms] [i] Credit granted: 1 (send credit now 1)
+[+   782 ms] [OUT] D4 packet (11 bytes):
+[+   782 ms] 02 02 00 0b 00 00 73 74 01 00 01                 | ......st...
+
+[+   782 ms] [io] OUT 11/11 bytes in 0 ms.
+[+   919 ms] [io] IN 210 bytes at +33 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+   919 ms] [io] Drain summary: 210 bytes in 1 data read(s) over 33 ms (first-byte window 498 ms); first data at +33 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+   919 ms] [io] IN payload (210 bytes):
+[+   919 ms] 02 02 00 d2 00 01 40 42 44 43 20 53 54 32 0d 0a  | ......@BDC ST2..
+[+   919 ms] c0 00 01 01 04 06 02 01 00 0f 0d 03 01 00 69 05  | ..............i.
+[+   919 ms] 03 69 04 02 69 03 01 69 10 03 01 0a 4e 13 01 01  | .i..i..i....N...
+[+   919 ms] 19 0c 00 00 00 00 00 75 6e 6b 6e 6f 77 6e 28 04  | .......unknown(.
+[+   919 ms] ff 01 00 00 36 20 ff ff ff ff ff ff ff ff 4b 0b  | ....6 ........K.
+[+   919 ms] 00 00 d7 36 00 00 26 00 00 00 ff ff ff ff 01 00  | ...6..&.........
+[+   919 ms] 00 00 00 00 00 00 37 05 02 00 00 00 00 40 0a 58  | ......7......@.X
+[+   919 ms] 35 44 58 31 33 33 33 36 30 47 4d ff ff 94 26 03  | 5DX133360GM...&.
+[+   919 ms] 40 04 00 00 00 00 00 00 02 00 ff ff 63 2d 07 00  | @...........c-..
+[+   919 ms] ff 10 0f 1a 00 00 ff ff ff ff ff ff ff ff ff ff  | ................
+[+   919 ms] ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff  | ................
+[+   919 ms] ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff  | ................
+[+   919 ms] ff ff ff ff 2f 16 3b 0c 48 05 01 1e 00 84 03 4b  | ..../.;.H......K
+[+   919 ms] 01 75                                            | .u
+[+   919 ms] [IN]  D4 data payload (204 bytes):
+[+   919 ms] 40 42 44 43 20 53 54 32 0d 0a c0 00 01 01 04 06  | @BDC ST2........
+[+   919 ms] 02 01 00 0f 0d 03 01 00 69 05 03 69 04 02 69 03  | ........i..i..i.
+[+   919 ms] 01 69 10 03 01 0a 4e 13 01 01 19 0c 00 00 00 00  | .i....N.........
+[+   919 ms] 00 75 6e 6b 6e 6f 77 6e 28 04 ff 01 00 00 36 20  | .unknown(.....6 
+[+   919 ms] ff ff ff ff ff ff ff ff 4b 0b 00 00 d7 36 00 00  | ........K....6..
+[+   919 ms] 26 00 00 00 ff ff ff ff 01 00 00 00 00 00 00 00  | &...............
+[+   919 ms] 37 05 02 00 00 00 00 40 0a 58 35 44 58 31 33 33  | 7......@.X5DX133
+[+   919 ms] 33 36 30 47 4d ff ff 94 26 03 40 04 00 00 00 00  | 360GM...&.@.....
+[+   919 ms] 00 00 02 00 ff ff 63 2d 07 00 ff 10 0f 1a 00 00  | ......c-........
+[+   919 ms] ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff  | ................
+[+   919 ms] ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff  | ................
+[+   919 ms] ff ff ff ff ff ff ff ff ff ff ff ff ff ff 2f 16  | ............../.
+[+   919 ms] 3b 0c 48 05 01 1e 00 84 03 4b 01 75              | ;.H......K.u
+
+[+   920 ms] [OUT] D4 packet (11 bytes):
+[+   920 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+   920 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  1022 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1022 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1022 ms] [io] IN payload (10 bytes):
+[+  1022 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  1022 ms] [IN]  D4 transaction payload (4 bytes):
+[+  1022 ms] 83 00 02 02                                      | ....
+
+[+  1022 ms] [OUT] D4 packet (13 bytes):
+[+  1022 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  1023 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  1128 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1128 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1128 ms] [io] IN payload (12 bytes):
+[+  1128 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  1128 ms] [IN]  D4 transaction payload (6 bytes):
+[+  1128 ms] 84 00 02 02 00 01                                | ......
+
+[+  1128 ms] [i] Credit granted: 1 (send credit now 1)
+[+  1128 ms] [OUT] D4 packet (17 bytes):
+[+  1128 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 1c  | ......||....A...
+[+  1128 ms] 00                                               | .
+
+[+  1128 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  1230 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1230 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 498 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1230 ms] [io] IN payload (26 bytes):
+[+  1230 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  1230 ms] 45 3a 30 30 31 43 30 30 3b 0c                    | E:001C00;.
+[+  1230 ms] [IN]  D4 data payload (20 bytes):
+[+  1230 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 31 43  | @BDC PS..EE:001C
+[+  1230 ms] 30 30 3b 0c                                      | 00;.
+
+[+  1230 ms] [OUT] D4 packet (11 bytes):
+[+  1230 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+  1231 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  1335 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1336 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1336 ms] [io] IN payload (10 bytes):
+[+  1336 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  1336 ms] [IN]  D4 transaction payload (4 bytes):
+[+  1336 ms] 83 00 02 02                                      | ....
+
+[+  1336 ms] [OUT] D4 packet (13 bytes):
+[+  1336 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  1336 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  1441 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1441 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1441 ms] [io] IN payload (12 bytes):
+[+  1441 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  1441 ms] [IN]  D4 transaction payload (6 bytes):
+[+  1441 ms] 84 00 02 02 00 01                                | ......
+
+[+  1442 ms] [i] Credit granted: 1 (send credit now 1)
+[+  1442 ms] [OUT] D4 packet (17 bytes):
+[+  1442 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 34  | ......||....A..4
+[+  1442 ms] 00                                               | .
+
+[+  1442 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  1546 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1546 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 499 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1546 ms] [io] IN payload (26 bytes):
+[+  1546 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  1546 ms] 45 3a 30 30 33 34 30 30 3b 0c                    | E:003400;.
+[+  1546 ms] [IN]  D4 data payload (20 bytes):
+[+  1546 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 33 34  | @BDC PS..EE:0034
+[+  1546 ms] 30 30 3b 0c                                      | 00;.
+
+[+  1546 ms] [OUT] D4 packet (11 bytes):
+[+  1546 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+  1546 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  1651 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1651 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1999 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1651 ms] [io] IN payload (10 bytes):
+[+  1651 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  1651 ms] [IN]  D4 transaction payload (4 bytes):
+[+  1651 ms] 83 00 02 02                                      | ....
+
+[+  1651 ms] [OUT] D4 packet (13 bytes):
+[+  1651 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  1652 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  1756 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1756 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1999 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1756 ms] [io] IN payload (12 bytes):
+[+  1756 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  1756 ms] [IN]  D4 transaction payload (6 bytes):
+[+  1756 ms] 84 00 02 02 00 01                                | ......
+
+[+  1757 ms] [i] Credit granted: 1 (send credit now 1)
+[+  1757 ms] [OUT] D4 packet (17 bytes):
+[+  1757 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 35  | ......||....A..5
+[+  1757 ms] 00                                               | .
+
+[+  1757 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  1859 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1859 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 499 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1859 ms] [io] IN payload (26 bytes):
+[+  1859 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  1859 ms] 45 3a 30 30 33 35 30 30 3b 0c                    | E:003500;.
+[+  1859 ms] [IN]  D4 data payload (20 bytes):
+[+  1859 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 33 35  | @BDC PS..EE:0035
+[+  1859 ms] 30 30 3b 0c                                      | 00;.
+
+[+  1859 ms] [OUT] D4 packet (11 bytes):
+[+  1859 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+  1859 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  1960 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  1960 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  1960 ms] [io] IN payload (10 bytes):
+[+  1961 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  1961 ms] [IN]  D4 transaction payload (4 bytes):
+[+  1961 ms] 83 00 02 02                                      | ....
+
+[+  1961 ms] [OUT] D4 packet (13 bytes):
+[+  1961 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  1961 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  2066 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  2066 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  2066 ms] [io] IN payload (12 bytes):
+[+  2066 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  2066 ms] [IN]  D4 transaction payload (6 bytes):
+[+  2066 ms] 84 00 02 02 00 01                                | ......
+
+[+  2067 ms] [i] Credit granted: 1 (send credit now 1)
+[+  2067 ms] [OUT] D4 packet (17 bytes):
+[+  2067 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 36  | ......||....A..6
+[+  2067 ms] 00                                               | .
+
+[+  2067 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  2168 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  2168 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 498 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  2168 ms] [io] IN payload (26 bytes):
+[+  2168 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  2168 ms] 45 3a 30 30 33 36 35 45 3b 0c                    | E:00365E;.
+[+  2168 ms] [IN]  D4 data payload (20 bytes):
+[+  2168 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 33 36  | @BDC PS..EE:0036
+[+  2168 ms] 35 45 3b 0c                                      | 5E;.
+
+[+  2168 ms] [OUT] D4 packet (11 bytes):
+[+  2168 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+  2168 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  2272 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  2272 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  2272 ms] [io] IN payload (10 bytes):
+[+  2272 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  2272 ms] [IN]  D4 transaction payload (4 bytes):
+[+  2272 ms] 83 00 02 02                                      | ....
+
+[+  2272 ms] [OUT] D4 packet (13 bytes):
+[+  2272 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  2273 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  2378 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  2378 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1999 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  2378 ms] [io] IN payload (12 bytes):
+[+  2378 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  2378 ms] [IN]  D4 transaction payload (6 bytes):
+[+  2378 ms] 84 00 02 02 00 01                                | ......
+
+[+  2378 ms] [i] Credit granted: 1 (send credit now 1)
+[+  2378 ms] [OUT] D4 packet (17 bytes):
+[+  2378 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 37  | ......||....A..7
+[+  2378 ms] 00                                               | .
+
+[+  2378 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  2483 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  2483 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 498 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  2483 ms] [io] IN payload (26 bytes):
+[+  2483 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  2483 ms] 45 3a 30 30 33 37 35 45 3b 0c                    | E:00375E;.
+[+  2483 ms] [IN]  D4 data payload (20 bytes):
+[+  2483 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 33 37  | @BDC PS..EE:0037
+[+  2483 ms] 35 45 3b 0c                                      | 5E;.
+
+[+  2483 ms] [OUT] D4 packet (11 bytes):
+[+  2483 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+  2483 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  2589 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  2589 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  2589 ms] [io] IN payload (10 bytes):
+[+  2589 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  2589 ms] [IN]  D4 transaction payload (4 bytes):
+[+  2589 ms] 83 00 02 02                                      | ....
+
+[+  2589 ms] [OUT] D4 packet (13 bytes):
+[+  2589 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  2589 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  2695 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  2695 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  2695 ms] [io] IN payload (12 bytes):
+[+  2695 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  2695 ms] [IN]  D4 transaction payload (6 bytes):
+[+  2695 ms] 84 00 02 02 00 01                                | ......
+
+[+  2695 ms] [i] Credit granted: 1 (send credit now 1)
+[+  2695 ms] [OUT] D4 packet (17 bytes):
+[+  2695 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 2f  | ......||....A../
+[+  2695 ms] 00                                               | .
+
+[+  2695 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  2797 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  2798 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 498 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  2798 ms] [io] IN payload (26 bytes):
+[+  2798 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  2798 ms] 45 3a 30 30 32 46 30 30 3b 0c                    | E:002F00;.
+[+  2798 ms] [IN]  D4 data payload (20 bytes):
+[+  2798 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 32 46  | @BDC PS..EE:002F
+[+  2798 ms] 30 30 3b 0c                                      | 00;.
+
+[+  2798 ms] [OUT] D4 packet (11 bytes):
+[+  2798 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+  2798 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  2903 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  2903 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  2903 ms] [io] IN payload (10 bytes):
+[+  2903 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  2903 ms] [IN]  D4 transaction payload (4 bytes):
+[+  2903 ms] 83 00 02 02                                      | ....
+
+[+  2903 ms] [OUT] D4 packet (13 bytes):
+[+  2903 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  2903 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  3005 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3005 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1999 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3005 ms] [io] IN payload (12 bytes):
+[+  3006 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  3006 ms] [IN]  D4 transaction payload (6 bytes):
+[+  3006 ms] 84 00 02 02 00 01                                | ......
+
+[+  3006 ms] [i] Credit granted: 1 (send credit now 1)
+[+  3006 ms] [OUT] D4 packet (17 bytes):
+[+  3006 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 30  | ......||....A..0
+[+  3006 ms] 00                                               | .
+
+[+  3006 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  3107 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3107 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 498 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3107 ms] [io] IN payload (26 bytes):
+[+  3107 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  3107 ms] 45 3a 30 30 33 30 30 30 3b 0c                    | E:003000;.
+[+  3107 ms] [IN]  D4 data payload (20 bytes):
+[+  3107 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 33 30  | @BDC PS..EE:0030
+[+  3107 ms] 30 30 3b 0c                                      | 00;.
+
+[+  3107 ms] [OUT] D4 packet (11 bytes):
+[+  3107 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+  3107 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  3212 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3212 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3212 ms] [io] IN payload (10 bytes):
+[+  3212 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  3212 ms] [IN]  D4 transaction payload (4 bytes):
+[+  3212 ms] 83 00 02 02                                      | ....
+
+[+  3212 ms] [OUT] D4 packet (13 bytes):
+[+  3212 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  3213 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  3315 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3315 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3315 ms] [io] IN payload (12 bytes):
+[+  3315 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  3315 ms] [IN]  D4 transaction payload (6 bytes):
+[+  3315 ms] 84 00 02 02 00 01                                | ......
+
+[+  3315 ms] [i] Credit granted: 1 (send credit now 1)
+[+  3315 ms] [OUT] D4 packet (17 bytes):
+[+  3315 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 31  | ......||....A..1
+[+  3315 ms] 00                                               | .
+
+[+  3315 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  3419 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3419 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 499 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3419 ms] [io] IN payload (26 bytes):
+[+  3419 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  3419 ms] 45 3a 30 30 33 31 30 30 3b 0c                    | E:003100;.
+[+  3419 ms] [IN]  D4 data payload (20 bytes):
+[+  3419 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 33 31  | @BDC PS..EE:0031
+[+  3419 ms] 30 30 3b 0c                                      | 00;.
+
+[+  3419 ms] [OUT] D4 packet (11 bytes):
+[+  3419 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+  3419 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  3522 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3522 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3522 ms] [io] IN payload (10 bytes):
+[+  3522 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  3522 ms] [IN]  D4 transaction payload (4 bytes):
+[+  3522 ms] 83 00 02 02                                      | ....
+
+[+  3522 ms] [OUT] D4 packet (13 bytes):
+[+  3522 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  3523 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  3627 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3627 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1999 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3627 ms] [io] IN payload (12 bytes):
+[+  3627 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  3627 ms] [IN]  D4 transaction payload (6 bytes):
+[+  3627 ms] 84 00 02 02 00 01                                | ......
+
+[+  3627 ms] [i] Credit granted: 1 (send credit now 1)
+[+  3627 ms] [OUT] D4 packet (17 bytes):
+[+  3627 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 32  | ......||....A..2
+[+  3627 ms] 00                                               | .
+
+[+  3627 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  3733 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3733 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 499 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3733 ms] [io] IN payload (26 bytes):
+[+  3733 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  3733 ms] 45 3a 30 30 33 32 30 30 3b 0c                    | E:003200;.
+[+  3733 ms] [IN]  D4 data payload (20 bytes):
+[+  3733 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 33 32  | @BDC PS..EE:0032
+[+  3733 ms] 30 30 3b 0c                                      | 00;.
+
+[+  3733 ms] [OUT] D4 packet (11 bytes):
+[+  3733 ms] 00 00 00 0b 01 00 03 02 02 00 01                 | ...........
+
+[+  3733 ms] [io] OUT 11/11 bytes in 0 ms.
+[+  3835 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3835 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3835 ms] [io] IN payload (10 bytes):
+[+  3835 ms] 00 00 00 0a 01 00 83 00 02 02                    | ..........
+[+  3835 ms] [IN]  D4 transaction payload (4 bytes):
+[+  3835 ms] 83 00 02 02                                      | ....
+
+[+  3835 ms] [OUT] D4 packet (13 bytes):
+[+  3835 ms] 00 00 00 0d 01 00 04 02 02 ff ff 00 01           | .............
+
+[+  3835 ms] [io] OUT 13/13 bytes in 0 ms.
+[+  3941 ms] [io] IN 12 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  3941 ms] [io] Drain summary: 12 bytes in 1 data read(s) over 0 ms (first-byte window 1998 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  3941 ms] [io] IN payload (12 bytes):
+[+  3941 ms] 00 00 00 0c 01 00 84 00 02 02 00 01              | ............
+[+  3941 ms] [IN]  D4 transaction payload (6 bytes):
+[+  3941 ms] 84 00 02 02 00 01                                | ......
+
+[+  3941 ms] [i] Credit granted: 1 (send credit now 1)
+[+  3941 ms] [OUT] D4 packet (17 bytes):
+[+  3941 ms] 02 02 00 11 00 00 7c 7c 07 00 97 07 41 be a0 33  | ......||....A..3
+[+  3941 ms] 00                                               | .
+
+[+  3941 ms] [io] OUT 17/17 bytes in 0 ms.
+[+  4046 ms] [io] IN 26 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  4046 ms] [io] Drain summary: 26 bytes in 1 data read(s) over 0 ms (first-byte window 498 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  4047 ms] [io] IN payload (26 bytes):
+[+  4047 ms] 02 02 00 1a 00 01 40 42 44 43 20 50 53 0d 0a 45  | ......@BDC PS..E
+[+  4047 ms] 45 3a 30 30 33 33 30 30 3b 0c                    | E:003300;.
+[+  4047 ms] [IN]  D4 data payload (20 bytes):
+[+  4047 ms] 40 42 44 43 20 50 53 0d 0a 45 45 3a 30 30 33 33  | @BDC PS..EE:0033
+[+  4047 ms] 30 30 3b 0c                                      | 00;.
+
+[+  4047 ms] [OUT] D4 packet (9 bytes):
+[+  4047 ms] 00 00 00 09 01 00 02 02 02                       | .........
+
+[+  4047 ms] [io] OUT 9/9 bytes in 0 ms.
+[+  4148 ms] [io] IN 10 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  4148 ms] [io] Drain summary: 10 bytes in 1 data read(s) over 0 ms (first-byte window 498 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  4148 ms] [io] IN payload (10 bytes):
+[+  4148 ms] 00 00 00 0a 01 00 82 00 02 02                    | ..........
+[+  4148 ms] [IN]  D4 transaction payload (4 bytes):
+[+  4148 ms] 82 00 02 02                                      | ....
+
+[+  4148 ms] [OUT] D4 packet (7 bytes):
+[+  4148 ms] 00 00 00 07 01 00 08                             | .......
+
+[+  4148 ms] [io] OUT 7/7 bytes in 0 ms.
+[+  4254 ms] [io] IN 8 bytes at +0 ms (LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED).
+[+  4254 ms] [io] Drain summary: 8 bytes in 1 data read(s) over 0 ms (first-byte window 499 ms); first data at +0 ms; last status: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED.
+[+  4254 ms] [io] IN payload (8 bytes):
+[+  4254 ms] 00 00 00 08 01 00 88 00                          | ........
+[+  4254 ms] [IN]  D4 transaction payload (2 bytes):
+[+  4254 ms] 88 00                                            | ..
+
+[+  4254 ms] ==================================================
+[+  4254 ms] QUERY SESSION COMPLETE
+[+  4254 ms] Packets sent:       11
+[+  4254 ms] Result:             SUCCESS
+[+  4254 ms] ==================================================

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epson Waste Reset - EWR UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="brand-logo" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <h1>Epson Waste Reset</h1>
+          <span class="brand-subtitle" id="t-subtitle">Utilitas Pemulihan & Reset Waste Ink Pad Counter</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Connection Badge -->
+        <div class="status-indicator" id="connection-status">
+          <span class="status-dot disconnected"></span>
+          <span class="status-text" id="status-badge-text">Memindai...</span>
+        </div>
+
+        <!-- Language Switcher -->
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="btn-lang active" data-lang="id" title="Bahasa Indonesia">ID</button>
+          <button class="btn-lang" data-lang="en" title="English">EN</button>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button class="btn-icon theme-toggle" id="btn-theme-toggle" title="Ganti Tema">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="nav-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="tab-dashboard" role="tab">
+        <span class="tab-label" id="t-tab-dashboard">Dashboard & Reset</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-maintenance" role="tab">
+        <span class="tab-label" id="t-tab-maintenance">Maintenance (Cleaning)</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-info" role="tab">
+        <span class="tab-label" id="t-tab-info">Informasi & Diagnostik</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-backup" role="tab">
+        <span class="tab-label" id="t-tab-backup">Backup & Restore</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-database" role="tab">
+        <span class="tab-label" id="t-tab-database">Database Printer (~1450)</span>
+      </button>
+    </nav>
+
+    <!-- Device Connection Selector Bar -->
+    <section class="device-bar">
+      <div class="device-controls">
+        <div class="field-group">
+          <label for="select-device" id="t-lbl-device">Perangkat Terdeteksi:</label>
+          <select id="select-device" class="form-select">
+            <option value="">Memindai port USB & jaringan...</option>
+          </select>
+        </div>
+
+        <div class="field-group model-override-group">
+          <label for="input-model-override" id="t-lbl-model">Model Database:</label>
+          <input type="text" id="input-model-override" class="form-input" placeholder="Otomatis (atau ketik model, misal L3110)">
+        </div>
+
+        <div class="device-buttons">
+          <button class="btn btn-secondary" id="btn-refresh-devices" title="Pindai ulang port USB & jaringan">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+            <span id="t-btn-refresh-devices">Pindai Ulang</span>
+          </button>
+          <button class="btn btn-primary" id="btn-read-status" title="Baca status counter langsung dari printer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+            </svg>
+            <span id="t-btn-read-status">Baca Counter</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alerts / Notice Banner -->
+    <div id="alert-banner" class="alert-banner hidden" role="alert">
+      <div class="alert-content">
+        <span class="alert-icon" id="alert-icon"></span>
+        <span class="alert-message" id="alert-message"></span>
+      </div>
+      <button class="alert-close" id="btn-close-alert" aria-label="Tutup">&times;</button>
+    </div>
+
+    <!-- TAB 1: DASHBOARD & RESET -->
+    <main id="tab-dashboard" class="tab-panel active">
+      <!-- Printer Hardware Summary Card -->
+      <section class="card printer-summary-card">
+        <div class="card-header">
+          <h2 class="card-title" id="t-card-printer-status">Status Printer</h2>
+          <span class="badge" id="badge-printer-state">SIAP</span>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="summary-label" id="t-lbl-printer-name">Nama Printer:</span>
+            <span class="summary-value" id="val-printer-name">-</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label" id="t-lbl-printer-connection">Koneksi:</span>
+            <span class="summary-value" id="val-printer-conn">USB</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label" id="t-lbl-printer-status-text">Kondisi Hardware:</span>
+            <span class="summary-value" id="val-printer-condition">Normal</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label" id="t-lbl-device-id">Device ID:</span>
+            <span class="summary-value code-truncate" id="val-device-id">-</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Waste Ink Pad Counters (Core Feature) -->
+      <section class="card counters-card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" id="t-card-waste-counters">Waste Ink Pad Counters</h2>
+            <p class="card-desc" id="t-desc-waste-counters">Kapasitas penampung tinta pembuangan (Waste Ink Pad) pada EEPROM printer.</p>
+          </div>
+          <button class="btn btn-sm btn-outline" id="btn-refresh-counters">Perbarui</button>
+        </div>
+
+        <div class="counters-container" id="counters-list">
+          <!-- Counter 1: Main Pad -->
+          <div class="counter-item" id="main-pad-block">
+            <div class="counter-head">
+              <div class="counter-info">
+                <span class="counter-title" id="t-counter-main">Main Pad Counter (Bantalan Utama)</span>
+                <span class="counter-raw" id="val-main-pad-raw">0 / 6346 poin</span>
+              </div>
+              <span class="counter-pct safe" id="val-main-pad-pct">0%</span>
+            </div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill safe" id="bar-main-pad" style="width: 0%;"></div>
+              <div class="gauge-marker warn" style="left: 80%;" title="Batas Peringatan (80%)"></div>
+              <div class="gauge-marker crit" style="left: 100%;" title="Batas Maksimum (100%)"></div>
+            </div>
+          </div>
+
+          <!-- Counter 2: Platen Pad -->
+          <div class="counter-item" id="platen-pad-block">
+            <div class="counter-head">
+              <div class="counter-info">
+                <span class="counter-title" id="t-counter-platen">Platen Pad Counter (Bantalan Platen)</span>
+                <span class="counter-raw" id="val-platen-pad-raw">0 / 3416 poin</span>
+              </div>
+              <span class="counter-pct safe" id="val-platen-pad-pct">0%</span>
+            </div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill safe" id="bar-platen-pad" style="width: 0%;"></div>
+              <div class="gauge-marker warn" style="left: 80%;" title="Batas Peringatan (80%)"></div>
+              <div class="gauge-marker crit" style="left: 100%;" title="Batas Maksimum (100%)"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ink levels if reported -->
+        <div class="inks-section hidden" id="inks-section">
+          <h3 class="section-subtitle" id="t-ink-levels-title">Estimasi Level Tinta Cartridge</h3>
+          <div class="inks-grid" id="inks-grid"></div>
+        </div>
+      </section>
+
+      <!-- Reset Actions Control Center -->
+      <section class="card action-card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" id="t-card-actions">Pusat Tindakan Reset</h2>
+            <p class="card-desc" id="t-desc-actions">
+              Reset aman dengan auto-backup EEPROM dan verifikasi baca-ulang hardware.
+            </p>
+          </div>
+        </div>
+
+        <div class="action-buttons-row">
+          <button class="btn btn-outline" id="btn-open-dry-run">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span id="t-btn-dry-run">Simulasi (Dry Run)</span>
+          </button>
+
+          <button class="btn btn-danger btn-large" id="btn-open-reset">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            <span id="t-btn-do-reset">Reset Waste Ink Pad Counter</span>
+          </button>
+        </div>
+
+        <div class="safety-notes">
+          <div class="safety-note-item">
+            <span class="safety-badge">Auto Backup</span>
+            <span id="t-safety-1">Nilai EEPROM sebelum ditulis akan disimpan otomatis ke folder <code>backups/</code>.</span>
+          </div>
+          <div class="safety-note-item">
+            <span class="safety-badge">Verifikasi Nyata</span>
+            <span id="t-safety-2">Setelah penulisan selesai, register dibaca ulang untuk memastikan counter benar-benar 0%.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- TAB 2: MAINTENANCE & CLEANING -->
+    <main id="tab-maintenance" class="tab-panel">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" id="t-card-maintenance-title">Pemeliharaan Head Printer</h2>
+            <p class="card-desc" id="t-card-maintenance-desc">Jalankan cetak pola nozzle dan pembersihan head langsung ke printer.</p>
+          </div>
+        </div>
+
+        <div class="maintenance-grid">
+          <!-- Nozzle Check -->
+          <div class="maint-card">
+            <div class="maint-card-header">
+              <h3 id="t-maint-nozzle-title">Nozzle Check (Uji Semprotan)</h3>
+              <p id="t-maint-nozzle-desc">Mencetak pola nozzle untuk memeriksa garis putus atau nozzle tersumbat. Siapkan kertas HVS biasa.</p>
+            </div>
+            <button class="btn btn-secondary" id="btn-maint-nozzle">Cetak Pola Nozzle</button>
+          </div>
+
+          <!-- Head Cleaning -->
+          <div class="maint-card">
+            <div class="maint-card-header">
+              <h3 id="t-maint-clean-title">Head Cleaning (Pembersihan Biasa)</h3>
+              <p id="t-maint-clean-desc">Membersihkan nozzle head printer dengan menyedot sedikit tinta ke bantalan pembuangan.</p>
+            </div>
+            <div class="form-row">
+              <label for="select-clean-level" id="t-clean-level-lbl">Level Pembersihan:</label>
+              <select id="select-clean-level" class="form-select">
+                <option value="normal">Normal (Standar)</option>
+                <option value="gentle">Gentle (Ringan)</option>
+                <option value="medium">Medium (Sedang)</option>
+                <option value="strong">Strong (Kuat)</option>
+              </select>
+            </div>
+            <button class="btn btn-secondary" id="btn-maint-clean">Jalankan Head Cleaning</button>
+          </div>
+
+          <!-- Power Clean -->
+          <div class="maint-card maint-danger">
+            <div class="maint-card-header">
+              <h3 id="t-maint-power-title">Power Cleaning (Pengisian Tinta Kuat)</h3>
+              <p id="t-maint-power-desc">Penyedotan tinta bertenaga tinggi untuk mengatasi nozzle yang tersumbat parah. Membutuhkan volume tinta cukup banyak.</p>
+            </div>
+            <button class="btn btn-danger" id="btn-maint-power">Jalankan Power Cleaning</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- TAB 3: INFORMASI & DIAGNOSTIK -->
+    <main id="tab-info" class="tab-panel">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" id="t-info-title">Diagnostik Hardware & Riwayat Mesin</h2>
+            <p class="card-desc" id="t-info-desc">Informasi internal printer yang tercatat di memori EEPROM.</p>
+          </div>
+          <button class="btn btn-sm btn-outline" id="btn-read-info">Muat Ulang Info</button>
+        </div>
+
+        <div class="info-tables-container">
+          <div class="info-block">
+            <h3 class="section-subtitle" id="t-stats-title">Statistik Penggunaan</h3>
+            <table class="data-table" id="table-counters">
+              <thead>
+                <tr>
+                  <th id="th-stat-name">Parameter</th>
+                  <th id="th-stat-val">Nilai Tercatat</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-counters">
+                <tr><td colspan="2" class="text-center">Klik "Muat Ulang Info" untuk membaca data.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="info-block">
+            <h3 class="section-subtitle" id="t-fatal-title">Riwayat Fatal Error Terakhir</h3>
+            <table class="data-table" id="table-fatal">
+              <thead>
+                <tr>
+                  <th>Slot</th>
+                  <th>Kategori</th>
+                  <th>Kode Error</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-fatal">
+                <tr><td colspan="3" class="text-center">Tidak ada riwayat error terbaca.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- TAB 4: BACKUP & RESTORE -->
+    <main id="tab-backup" class="tab-panel">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" id="t-backup-title">Backup & Restore EEPROM</h2>
+            <p class="card-desc" id="t-backup-desc">Daftar arsip memori EEPROM yang tersimpan sebelum proses reset. Anda dapat mengembalikan nilai counter kapan saja.</p>
+          </div>
+          <button class="btn btn-sm btn-outline" id="btn-refresh-backups">Muat Ulang Arsip</button>
+        </div>
+
+        <table class="data-table" id="table-backups">
+          <thead>
+            <tr>
+              <th>Nama File</th>
+              <th>Ukuran</th>
+              <th>Tanggal Dibuat</th>
+              <th>Tindakan</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-backups">
+            <tr><td colspan="4" class="text-center">Belum ada file backup tersimpan.</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- TAB 5: DATABASE EXPLORER -->
+    <main id="tab-database" class="tab-panel">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" id="t-db-title">Database Model Epson (~1450 Printer)</h2>
+            <p class="card-desc" id="t-db-desc">Cari dan periksa parameter reset, read key, dan register EEPROM untuk tipe printer Epson Anda.</p>
+          </div>
+        </div>
+
+        <div class="db-search-bar">
+          <input type="text" id="input-db-search" class="form-input" placeholder="Ketik model printer (misal: L3110, L3150, L120, ET-2800, L8050)...">
+          <span class="db-count" id="db-total-count">Memuat database...</span>
+        </div>
+
+        <div class="db-models-table-wrapper">
+          <table class="data-table" id="table-models">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Alias & Seri</th>
+                <th>Dukungan Reset</th>
+                <th>Cleanings</th>
+                <th>Read / Write Keys</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-models">
+              <tr><td colspan="6" class="text-center">Memuat database printer...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Real-time Console Log Drawer -->
+    <section class="console-drawer" id="console-drawer">
+      <div class="console-header" id="console-header">
+        <div class="console-title">
+          <span class="console-dot"></span>
+          <span id="t-console-title">Aktivitas & Log Trace Real-time</span>
+        </div>
+        <div class="console-actions">
+          <button class="btn-xs btn-outline" id="btn-clear-console">Bersihkan</button>
+          <button class="btn-xs btn-outline" id="btn-toggle-console">Tutup</button>
+        </div>
+      </div>
+      <div class="console-body" id="console-output">
+        <div class="log-line info">[Sistem] EWR UI siap. Hubungkan printer Epson melalui kabel USB atau jaringan LAN.</div>
+      </div>
+    </section>
+
+    <!-- MODAL: DRY RUN (SIMULASI) -->
+    <div class="modal-backdrop hidden" id="modal-dry-run">
+      <div class="modal-window">
+        <div class="modal-header">
+          <h3 id="t-dryrun-modal-title">Simulasi Reset (Dry Run)</h3>
+          <button class="modal-close" id="btn-close-dryrun">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p id="t-dryrun-modal-desc">
+            Berikut adalah rencana penulisan EEPROM yang akan dieksekusi. Pada mode simulasi, tidak ada data yang ditulis ke printer:
+          </p>
+          <div class="dry-run-preview" id="dryrun-plan-container">
+            <span class="text-muted">Memuat rencana simulasi...</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="btn-cancel-dryrun">Tutup</button>
+          <button class="btn btn-danger" id="btn-proceed-from-dryrun">Lanjutkan ke Reset Asli</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: RESET CONFIRMATION & LIVE PROGRESS -->
+    <div class="modal-backdrop hidden" id="modal-reset">
+      <div class="modal-window">
+        <div class="modal-header modal-header-danger">
+          <h3 id="t-reset-modal-title">Konfirmasi Reset Waste Ink Pad</h3>
+          <button class="modal-close" id="btn-close-reset">&times;</button>
+        </div>
+        <div class="modal-body">
+          <!-- State 1: Confirmation Form -->
+          <div id="reset-confirm-state">
+            <div class="alert-box-warn">
+              <strong id="t-reset-warn-title">PENTING:</strong>
+              <p id="t-reset-warn-text">
+                Proses ini akan menulis ulang counter waste ink pad pada memori EEPROM printer menjadi 0%.
+                Sistem akan membuat backup otomatis sebelum penulisan. Pastikan kabel USB tidak dicabut selama proses.
+              </p>
+            </div>
+
+            <div class="reset-meta-box">
+              <div class="meta-row">
+                <span class="meta-lbl">Target Model:</span>
+                <span class="meta-val" id="modal-reset-model">L3110</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-lbl">Koneksi:</span>
+                <span class="meta-val" id="modal-reset-conn">USB</span>
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" id="chk-confirm-power-cycle">
+              <label for="chk-confirm-power-cycle" id="t-chk-confirm-label">
+                Saya mengerti bahwa setelah reset berhasil, printer wajib dimatikan dan dinyalakan kembali (power cycle).
+              </label>
+            </div>
+          </div>
+
+          <!-- State 2: Live Progress & Verification -->
+          <div id="reset-progress-state" class="hidden">
+            <h4 class="progress-title" id="t-reset-progress-title">Sedang Menjalankan Reset EEPROM...</h4>
+
+            <div class="steps-list" id="reset-steps-list">
+              <div class="step-item" id="step-preflight">
+                <span class="step-icon">1</span>
+                <span class="step-label" id="t-step-1">Membaca status counter printer</span>
+              </div>
+              <div class="step-item" id="step-backup">
+                <span class="step-icon">2</span>
+                <span class="step-label" id="t-step-2">Menyimpan backup EEPROM ke folder backups/</span>
+              </div>
+              <div class="step-item" id="step-write">
+                <span class="step-icon">3</span>
+                <span class="step-label" id="t-step-3">Menulis nilai reset ke register EEPROM</span>
+              </div>
+              <div class="step-item" id="step-verify">
+                <span class="step-icon">4</span>
+                <span class="step-label" id="t-step-4">Verifikasi pembacaan ulang register</span>
+              </div>
+            </div>
+
+            <div class="reset-result-box hidden" id="reset-result-box"></div>
+          </div>
+        </div>
+
+        <div class="modal-footer" id="modal-reset-footer">
+          <button class="btn btn-secondary" id="btn-cancel-reset">Batal</button>
+          <button class="btn btn-danger" id="btn-confirm-reset" disabled>Mulai Reset Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

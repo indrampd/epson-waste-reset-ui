@@ -1,0 +1,21 @@
+{
+  "name": "epson-waste-reset-ui",
+  "version": "1.6.0",
+  "description": "Cross-platform Desktop UI for Epson Waste Reset (RxNaison/Epson-Waste-Reset)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "app": "./bin/ewr-gui-macos",
+    "build:mac": "swiftc -O -framework Cocoa -framework SwiftUI native/main.swift native/App/*.swift native/Models/*.swift native/Services/*.swift native/ViewModels/*.swift native/Views/*.swift native/Views/Components/*.swift native/Views/Tabs/*.swift native/Views/Sheets/*.swift -o bin/ewr-gui-macos && cp bin/ewr-gui-macos \"Epson Waste Reset.app/Contents/MacOS/Epson Waste Reset\""
+  },
+  "keywords": [
+    "epson",
+    "waste-ink-reset",
+    "ewr",
+    "epson-reset",
+    "maintenance",
+    "gui"
+  ],
+  "author": "RxNaison / Community",
+  "license": "Apache-2.0"
+}

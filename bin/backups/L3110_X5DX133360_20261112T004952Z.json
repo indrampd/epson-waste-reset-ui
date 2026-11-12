@@ -1,0 +1,58 @@
+{
+  "format": "ewr-backup",
+  "version": 1,
+  "created": "2026-11-12T00:49:52Z",
+  "ewr": "1.6.0",
+  "model": "L3110",
+  "target": "waste",
+  "printer": {
+    "transport": "usb",
+    "address": null,
+    "device_id": "MFG:EPSON;CMD:ESCPL2,BDC,D4,D4PX,ESCPR1,END4;MDL:L3110 Series;CLS:PRINTER;DES:EPSON L3110 Series;CID:EpsonRGB;FID:FXN,DPN,WFN,ETN,AFN,DAN,WRN;RID:50;DDS:022180;ELG:1163;",
+    "serial": "X5DX133360"
+  },
+  "address_length": 2,
+  "bytes": [
+    {
+      "address": 28,
+      "value": 0
+    },
+    {
+      "address": 52,
+      "value": 0
+    },
+    {
+      "address": 53,
+      "value": 0
+    },
+    {
+      "address": 54,
+      "value": 94
+    },
+    {
+      "address": 55,
+      "value": 94
+    },
+    {
+      "address": 47,
+      "value": 0
+    },
+    {
+      "address": 48,
+      "value": 0
+    },
+    {
+      "address": 49,
+      "value": 0
+    },
+    {
+      "address": 50,
+      "value": 0
+    },
+    {
+      "address": 51,
+      "value": 0
+    }
+  ],
+  "complete": true
+}
